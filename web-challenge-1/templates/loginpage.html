@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Use the google font named silkscreen -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <title>Very cool Login Page</title>
+    <style>
+        /* pixel art style css use the font silkscreen*/
+        body {
+            background-color: #000000;
+            color: #00ff00;
+            font-family: 'Silkscreen', monospace;
+            font-size: 16px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input {
+            margin-top: 5px;
+            border: 1px solid #00ff00;
+            background-color: #000000;
+            color: #00ff00;
+            font-family: 'Silkscreen', monospace;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            margin-top: 10px;
+            border: 1px solid #00ff00;
+            background-color: #000000;
+            color: #00ff00;
+            font-family: 'Silkscreen', monospace;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Very secure login page</h1>
+    <form action="/" method="POST">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>
