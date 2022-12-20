@@ -11,6 +11,8 @@ Or download from gofile `https://gofile.io/d/jp13cd`
 
 unzip them alongsize docker-compose.yml as a minecraft-data folder
 
+Modify homepage environment variable local_ipv4 in compose yaml accordingly
+
 run `docker compose up`
 
-First web challenge is on port 8001, second on 8002, and the minecraft is on 25565.
+Homepage should be up on port 8000
