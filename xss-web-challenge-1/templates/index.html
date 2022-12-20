@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Use the google font named silkscreen -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <title>XSS Injection - Blog Post</title>
+    <style>
+        /* pixel art style blog css with soft palette colors center aligned to the left use the font silkscreen */
+        body {
+            background-color: #f0f0f0;
+            font-family: 'Silkscreen', monospace;
+            font-size: 16px;
+            color: #000000;
+            text-align: left;
+            padding: 1ch 2ch;
+        }
+        form {
+            text-align: left;
+        }
+        input {
+            background-color: #f0f0f0;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+        }
+        input[type="submit"] {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        /* add rectangular box around individual comments */
+        #comments p {
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="preventing-cross-site-scripting-xss-attacks">Preventing
+        Cross-Site Scripting (XSS) Attacks</h1>
+        <p>Cross-Site Scripting (XSS) attacks are a common and potentially
+        dangerous type of cyber attack that involves injecting malicious code
+        into a webpage. These attacks can be used to steal sensitive
+        information, such as login credentials or financial data, or to
+        manipulate the appearance or functionality of a webpage. As a website
+        owner or developer, it is important to understand how to prevent and
+        defend against XSS attacks.</p>
+        <h2 id="steps-to-prevent-xss-attacks">Steps to prevent XSS attacks</h2>
+        <ol type="1">
+        <li><p>Sanitize user input: XSS attacks often involve injecting
+        malicious code into input fields, such as search boxes, login forms, and
+        comment boxes. One way to prevent these attacks is to sanitize user
+        input by stripping out potentially harmful characters or tags. This can
+        be done on the server side, before the input is stored or displayed on
+        the webpage.</p></li>
+        <li><p>Use content security policies (CSPs): CSPs are a set of rules
+        that define which sources are allowed to load content on a webpage. By
+        defining a CSP, you can prevent malicious code from being executed on
+        your webpage.</p></li>
+        <li><p>Keep your software and plugins up to date: Outdated software and
+        plugins can be vulnerable to XSS attacks, so it is important to keep all
+        of your software and plugins up to date. This includes your web server
+        software, your content management system (CMS), and any other software
+        or plugins you are using.</p></li>
+        </ol>
+        <p>By following these steps, you can help protect your website and its
+        users from XSS attacks. It is important to take these precautions
+        seriously, as XSS attacks can have serious consequences for both your
+        website and its users.</p>        
+
+    <!-- comment box -->
+    <p>Leave a comment</p>
+    <form action="/" method="POST">
+        <input type="text" name="comment">
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- comment section -->
+    <p>Comments</p>
+    <div id="comments">
+        {% for comment in comments %}
+            <p>{{ comment|safe }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

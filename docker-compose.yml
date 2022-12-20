@@ -1,4 +1,10 @@
 services:
+  homepage: 
+    build: homepage
+    ports:
+      - "8000:8000"
+    environment:
+      local_ipv4: "dontforgettosetthis"
   web1:
     build: web-challenge-1
     ports:
@@ -7,6 +13,10 @@ services:
     build: web-challenge-2
     ports:
       - "8002:8002"
+  xss-web1:
+    build: xss-web-challenge-1
+    ports:
+      - "8003:8003"
   mc:
     image: itzg/minecraft-server
     ports:
